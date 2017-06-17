@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!-- 
+	Autor: Francisco Maass Villarreal
+	Matricula: A01136728
+	Clase: Desarrollo de Applicaciones web
+	Periodo: Verano 2017
+	Profesor: MSc Alfredo Salazar Vélez
+	Escuela: Instituto tecnológico y de estudios superoipres de Monterrey
+	Campus: Monterrey
+-->
+<html>
+<head>
+	<!-- Metadatos de la pagina -->
+	<meta charset= "utf-8" /> <!-- incluye caracteres: ¡, ¿, ñ, á, é, í, ó, ú -->
+
+	<!-- Titulo de la pestaña/ventana -->	
+	<title>Mr. Burger</title>
+
+	<!-- Estilos -->
+	<link rel= "stylesheet" type= "text/css" href= "_css/estilo.css" />
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="_scripts/indexJS.js"></script>
+</head>
+
+<body>
+	<!-- Encabeado de la pagina -->
+	<div id= "encabezado" >
+		<!-- Separar la barra Usuario de la de navegación-->
+
+		<!-- Logo del negocio -->
+		<div id= "logo">
+			<img src="_img/logo.png" height= "60px" />
+		</div>
+
+		<!-- Titulo -->
+		<div id= "titulo">
+			<h2>Mr. Burger</h2>
+		</div>
+
+		<!-- Menú principal -->
+		<ul id= "menu">
+			<li class= "contacto selected" >Contactanos</li>
+			<li class= "pedidos ">Tu Burger</li>
+			<li class= "acerca" >Los Chefs</li>
+			<li class= "inicio" >Inicio</li>
+		</ul>
+	</div>
+
+		<!-- Contenido de la pagina Home  -->
+	<div id= "inicio" class= "hidden contenido">
+		
+		<h1>Inicio</h1>
+
+		<div class= "error404">
+			
+			<img src="_img/error404.jpg">
+
+			<p>Sitio en construcción disculpe las molestias</p>
+
+			<!-- En el futuro agregar tres div/span con las secciones a donde podemos mandar a los ususarios -->
+
+		</div>
+	</div>
+
+	<!-- Contenido de la pagina de los chefs   -->
+	<div id= "acerca" class= "hidden contenido">
+
+		<h1>El equipo de Mr. Burger</h1>
+
+		<p>Le base de datos</p>
+
+		<!-- Aquí va el contenido de los chefs
+
+		<div id= "chef[NOMBRE]" calss= "chefWrapper">
+			
+			<img src="[PATH A IMAGEN]" />
+			
+			nombre + apellidos
+
+			edad
+
+			tipo
+
+			variable = "";
+
+			variable = "<ul> especialidades: "
+				var i= spec.length
+
+				do{
+					variable += <li> specName </li>;
+					i- -;
+				}while(i!=0);
+			variable += "</ul>"
+				
+		</div>
+
+		-->
+	</div>
+
+	<!-- Contenido de la pagina Pedidos  -->
+	<div id= "pedidos" class= "hidden contenido">
+		<!-- Formulario -->
+		<div id= "orden">
+
+			<h1>Pedidos</h1>
+
+			<fieldset>
+				<legend>Tu orden</legend>
+
+				<div class= "errores">
+					<span id="errorTamaño" class="hidden error"> ¡Hey, Se te olvido la salsa! </span>
+					<span id="errorSalsa" class="hidden error"> ¡Hey, Se te olvido la salsa! </span>
+					<span id="errorCantidad" class="error"> ¿Cuantas quieres? </span>
+				</div>
+
+				<span> <!-- Instrucciones y slogan -->
+					<p>
+						Recuerda que somos <span id= "slogan">Mr. Burger”: “Hamburguesas y papas de la manera que siempre debieron ser. </span>
+					</p>
+
+					<p>
+						Por eso para que todos estemos en el mismo canal, cuentame cómo quieres tu hamburguesa.
+					</p>
+				</span>
+
+				<!-- Selección de tamaño -->
+				<div class= "opcionesTamaño">
+					<span><h4>Tamaño</h4></span>
+
+					<input type = "radio" name = "tamaño" id= "tamañoSimple" value= "simple" class= "tamaño"/> 
+					<label for= "tamañoSimple" >La original</label><br>
+
+					<input type = "radio" name = "tamaño" id= "tamañoDoble" value= "doble" class= "tanaño" /> 
+					<label for= "tamañoDoble">Doble (Para los hambrientos)</label><br>
+
+					<input type = "radio" name = "tamaño" id= "tamañoTriple" value= "triple" class= "tamaño" /> 
+					<label for= "tamañoTriple">La imposible (¡No te la vas a acabar!)</label><br>
+					<br>
+
+					<input type= "checkbox" name= "queso" id= "queso" value= "queso" class= "queso" />
+					<label>Con queso</label>
+				</div>
+
+				<div class= "opcionesaderezos">
+					<h4>La quieres con: </h4>
+
+					<input  type= "checkbox" name= "aderezos" id= "mayonesa" vlaue= "mayonesa" class= "aderezos"/>
+					<label for= "mayonesa">Mayonesa</label>
+
+					<input  type= "checkbox" name= "aderezos" id= "mostaza" vlaue= "mostaza" class= "aderezos"/>
+					<label for= "mostaza">Mostaza</label>
+
+					<input  type= "checkbox" name= "aderezos" id= "cátsup" vlaue= "cátsup" class= "aderezos"/>
+					<label for= "cátsup">Cátsup</label>
+				</div>	
+
+				<div class= "opcionesComplementos">
+					<h4>¿Qué mas le ponemos?</h4>
+
+					<span class= "complementosCol1">
+						<input type= "checkbox" name= "complementos" id= "tomate" value= "tomate" />
+						<label for= "tomate">tomate</label><br>
+						<input type= "checkbox" name= "complementos" id= "lechuga" value= "lechuga" />
+						<label for= "lechuga">lechuga</label><br>
+						<input type= "checkbox" name= "complementos" id= "cebolla" value= "cebolla" />
+						<label for= "cebolla">cebolla</label><br>
+						<input type= "checkbox" name= "complementos" id= "pepinillos" value= "pepinillos" />
+						<label for= "pepinillos">pepinillos</label><br>
+						<input type= "checkbox" name= "complementos" id= "aguacate" value= "aguacate" />
+						<label for= "aguacate">aguacate</label><br>
+						<input type= "checkbox" name= "complementos" id= "repollo" value= "repollo" />
+						<label for= "repollo">repollo</label><br>
+						<input type= "checkbox" name= "complementos" id= "pimiento" value= "pimiento" />
+						<label for= "pimiento">pimiento</label><br>
+					</span>
+
+					<span class= "complementosCol2">
+						<input type= "checkbox" name= "complementos" id= "jalapeños" value= "jalapeños" />
+						<label for= "jalapeños">jalapeños</label><br>
+						<input type= "checkbox" name= "complementos" id= "champiñones" value= "champiñones" />
+						<label for= "champiñones">champiñones</label><br>
+						<input type= "checkbox" name= "complementos" id= "tocino" value= "tocino" />
+						<label for= "tocino">tocino</label><br>
+						<input type= "checkbox" name= "complementos" id= "queso extra" value= "queso extra" />
+						<label for= "queso extra">queso extra</label><br>
+						<input type= "checkbox" name= "complementos" id= "cebolla a la parrilla" value= "cebolla a la parrilla" />
+						<label for= "cebolla a la parrilla">cebolla a la parrilla</label><br>
+						<input type= "checkbox" name= "complementos" id= "pimiento a la parrilla" value= "pimiento a la parrilla" />
+						<label for= "pimiento a la parrilla">pimiento a la parrilla</label><br>
+						<input type= "checkbox" name= "complementos" id= "repollo a la parrilla" value= "repollo a la parrilla" />
+						<label for= "repollo a la parrilla">repollo a la parrilla</label><br>
+					</span>
+				</div>
+
+				<div class= "opcionesSalsa">
+					<h4>En que salsa la bañamos</h4>
+					<label for= "salsa">en: </label>
+					<select class= "salsa"> 
+						<option value= "mrBurger">la Mr. Burger</option>
+						<option value= "bistec">la del asador</option>
+						<option value= "bbq">la Gringa</option>
+						<option value= "picante">Fuego</option>
+						<option value= "honeyMustard" >Honey mustard</option>
+						<option value= "ranch">Ranch</option>
+						<option value= "chipotle">una Mexicana</option>
+						<option value= "aceite">Aceite de oliva</option>
+					</select>
+				</div>
+
+				<div class= "extra">
+					<h4>Y para acompañar</h4>
+					<input type= "checkbox" name= "extra" id= "ensalada" value= "ensalada" />
+					<label for= "ensalada">Ensalada (estoy a dieta)</label><br>
+
+					<input type= "checkbox" name= "extra" id= "papas" value= "papas" />
+					<label for= "papas">Papas a la francesa</label><br>
+
+					<input type= "checkbox" name= "extra" id= "criscut" value= "criscut" />
+					<label for= "criscut">Papas Cris-cut</label><br>
+				</div>
+
+				<div class= "opcionesCantidad">
+					
+					<label for= "cantidad">¿Entre cuantos dividimos la cuenta?</label>
+					<input type= "number" name= "cantidad" id= "cantidad"/>
+					
+				</div>
+
+				<div class= "botones">
+					<input type= "submit" value= "De nuevo" id= "resetForm" onclick=test() />
+					<input type= "submit" value= "A la cocina!" id= "submitForm" />
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- Resumen del pedido -->
+		<div id= "resumen" class= "hidden">	
+
+			<fieldset>
+				<legend>Resumen</legend>
+
+				<p>
+					R evisa que to esté en orden.
+				</p>
+
+				<!-- Se llena con el JS -->
+
+			</fieldset> 
+
+		</div>
+	</div>
+
+	<!-- Contenido de la pagina de Contacto  -->
+	<div id= "contacto" class= "showing contenido">
+
+		<h1>Dejanos un comentario</h1>
+
+		<p>
+			Input en donde el usuario escribe su correo y un text area donde el ususario deja su comentarios. 
+		</p>
+
+		<p>
+			Un boton con la leyenda COMENTA: agregar el comentario a la lista de comentarios esplegada al inferior de dichos inputs (Como htmls no modificar ningunarchivo JSON o XML
+		</p>
+
+					<!--Titulo de la pagina-->
+			<h1>Contacto</h1>
+
+			<!--ver la posibilidad de agregar un dropDown con opciones, si selecciona la opcion Comentario, el comentario se agrega a la lista 
+
+			<select id= "selectContacto">
+				<option value= "1"> Sugerencia </option>
+				<option value= "2"> Queja </option>
+				<option value= "3"> Comentario </option>
+			</select>
+
+			<span id= "warningComentarios" class= "warning">
+				NOTA: todos los comentarios son publicos y se despliegan despues de esta seccion
+			</span>
+
+			Tambien se pueden habilitar los campos segun ls opcion seleccionada por el ussuario
+			-->
+
+			<!-- Captura infromación del ususairo-->
+			<fieldset id= "correo">
+				<legend>Envianos un correo</legend>
+				
+				<label for= "correoNombre">Nombre</label><br>
+				<input type= "text" name= "correoNombre" id= "correoNombre" />
+
+				<label for= "correoCorreo">Correo Elctrónico</label><br>
+				<input type= "email" name= "correoCorreo" id= "correoCorreo" />
+
+				<label for= "correoTexto">Correo Elctrónico</label><br>
+				<textarea name= "correoTexto">Deja tu comentario aquí...</textarea> 
+
+				<input type="submit" id= "bottonEnviar" value="Enviar">
+			</fieldset>
+
+			<!--Despliega comentarios de los usuarios-->
+			<fieldset id= "comentarios">
+				<legend>Comentarios: </legend>
+				
+				<!-- Los comentarios se cargan aquí-->
+
+				<!--
+				Formato de como se despliegan los comentarios
+				
+				desplegarComentario = 
+				"<span>" + usuarioNombre + "</span> |" + "<span>" + usuario + "</span><br>" + "
+				<textarea class= 'contactoTexto'>" + comentario + "</textarea>";
+
+				do{ 
+
+					desplegarComentario = 
+				"<span>" 
+					+ usuarioNombre + 
+				"</span> |" + 
+				"<span>"
+					+ usuario + 
+				"</span><br>"
+				+
+				"<textarea class= 'contactoTexto'>" + 
+					comentario + 
+				"</textarea>";
+
+					$(#comentarios).append(desplegarComentario)
+				}while(COMO ME TRAJE LOS COMENTARIOS DE LA BD)
+				
+
+				-->
+			</fieldset>
+
+		<div id="contactWrapper">
+
+
+
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+TEST CODE
+
+	<!-- SCRIPT PARA HACER PRUEBAS
+		<script type="text/javascript">
+			var x = new Array();
+
+			x[0] = document.getElementsByClassName("tamaño");
+			x[1] = document.getElementsByClassName("salsa");
+			x[2] = document.getElementsByClassName("cantidad");
+
+			var error = document.getElementsByClassName("error");
+			
+			function test(){
+				var l  = x.length;
+
+				for(var i = 0; i < l; i++){
+					var text = "" + x[i].type + "";
+					switch(text){		
+						
+						case "radio": 
+							var aux = x[i].length, j = 0;
+
+							do{
+								if (x[i][j].checked) {
+									error[1].classList.add("hidden");
+								};
+
+								j++;
+
+							}while(j < aux);
+
+							error[1].classList.remove("hidden");
+							break;
+						
+						case "select": 
+							if(x[i].selectedIndex == "-1") {
+								error[2].add("hidden");
+							} else{};{
+								error[2].classList.remove("hidden");
+							};
+							break;
+
+						case "text": break;
+						
+						case "number":
+							if(cantidad.value == "0" || cantidad.value == ""){
+								error[3].classList.remove("hidden");
+							}else{
+								error[3].classList.add("hidden");
+							};
+							break;
+
+						default: error[0].classList.add("hidden");
+					};				
+				};
+			};	
+		</script>
+	-->
