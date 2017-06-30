@@ -1,40 +1,236 @@
 <!DOCTYPE html>
+<!-- 
+    Autor: Francisco Maass Villarreal
+    Matricula: A01136728
+    Clase: Desarrollo de Applicaciones web
+    Periodo: Verano 2017
+    Profesor: MSc Alfredo Salazar Vélez
+    Escuela: Instituto tecnológico y de estudios superoipres de Monterrey
+    Campus: Monterrey
+-->
 <html>
+
     <head>
-        <title>Documento HTML</title>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" type="text/css" href="css/styles.css" />
-        <script src="js/jquery.js" type="text/javascript"></script>
-        <script src="js/registrationScript.js" type="text/javascript"></script>
+        <!-- Metadatos de la pagina -->
+        <meta charset= "utf-8" /> <!-- incluye caracteres: ¡, ¿, ñ, á, é, í, ó, ú -->
+
+        <!-- Titulo de la pestaña/ventana -->   
+        <title>Mr. Burger</title>
+
+        <!-- Estilos -->
+        <link rel= "stylesheet" type= "text/css" href= "_css/estilo.css" />
+        <link rel= "stylesheet" type= "text/css" href= "_css/estiloRegistro.css" />
+
+        <!-- Scripts -->
+        <script type="text/javascript" src="_scripts/jquery.js"></script>
+        <script type="text/javascript" src="_scripts/login.js"></script>
+        <script type="text/javascript" src="_scripts/register.js"></script>
+        
 
     </head>
+
     <body>
-        <h1> PHP Service </h1>
-        <fieldset>
-            <legend>Registration Data</legend>
-            <div id="registerContainer">
-                <p>
-                    First Name<br/>
-                    <input id="firstName" class="formElement" type="text" />
-                </p>
-                 <p>
-                    Last Name<br/>
-                    <input id="lastName" class="formElement" type="text" />
-                </p>  
-                <p>
-                    Username<br/>
-                    <input id="username" class="formElement" type="text" />
-                </p>
-                <p>
-                    Password<br/>
-                    <input id="userPassword" class="formElement" type="password" />
-                </p>   
-                <p>
-                    <input type="button" id="registerButton" value="Register"/>
-                    <input type="button" id="cancelButton" value="Cancel"/>
-                </p>      
+
+        <!-- Barra de sesiones -->
+        <div id= "sesiones" >
+
+            <!-- Menú de sesiones -->
+            <ul id= "menuSesiones">
+                <li class= "hidden" >Iniciar sesión | Registro</li>
+                <li class= "hidden" >nombreDeUsuario</li>
+            </ul>
+        </div>
+
+        <!-- Menú de la pagina -->
+        <div id= "encabezado" >
+            <!-- Separar la barra Usuario de la de navegación-->
+
+            <!-- Logo del negocio -->
+            <div id= "logo">
+                <img src="_img/logo.png" height= "60px" />
             </div>
-        </fieldset>
+
+            <!-- Titulo -->
+            <div id= "titulo">
+                <h2>Mr. Burger</h2>
+            </div>
+        </div>
+
+        <!-- Contenido de la pagina Home  -->
+        <div id= "formularios" class= "showing">
+              
+            <fieldset id= "login" class= "showing">
+                <legend>Inicio de sesión</legend>
+
+                <p>
+                    <label for= "loginUser">Usuario</label><br>
+                    <input type= "text" name= "loginUser" id= "loginUser" class="loginForm" />
+                </p>
+
+                <p>
+                    <label for= "loginPass">Contraseña</label><br>
+                    <input type= "password" name= "loginPass" id= "loginPass" class="loginForm"/>
+                </p>
+
+                <div id="loginButtons">
+                    <input type= "submit" id= "loginButton" value= "Iniciar sesión"/>
+                </div>
+            </fieldset>
+
+            <fieldset id= "registro" class= "showing">
+                <legend>Nuevo Usuario</legend>
+
+                <p>
+                    <label for= "registrarUser">Nombre:</label><br>
+                    <input type= "text" class="registerForm" name= "registrarName" id= "registrarName" placeholder="Nombre"/>
+                    <input type= "text" class="registerForm" name= "registrarLastname" id= "registrarLastname" placeholder="Apellidos"/>
+                </p>
+
+                <p>
+                    <label for= "registrarUser">Selecciona tu usuario:</label><br>
+                    <input type= "text" class="registerForm" name= "registrarUser" id= "registrarUser" placeholder="mrBurger"/>
+                    <span id="userError" class="error">El usuario ya existe</span>
+                </p>
+
+                <p>
+                    <label for= "registrarEmail">Correo electrónico:</label><br>
+                    <input type= "email" class="registerForm" name= "registrarEmail" id= "registrarEmail" placeholder="mister@mrburger.com"/>
+                    <span id="emailError" class="error">El correo ya está registrado</span>
+                </p>
+
+                <p>
+                    <label for= "registrarPass">Selecciona una contraseña: </label><br>
+                    <input type= "password" class="registerForm" name= "registrarPass" id= "registrarPass" placeholder="Mínimo 8 caracteres"/>
+                    <input type= "password" class="registerForm" name= "registrarPassConfirmation" id= "registrarPassConfirmation" placeholder="Confirmar tu contraseña"/>
+                    <span id="passError" class="error">Contraseñas no coinciden</span>
+                </p>
+
+                <p>
+                    <label for= "registrarBDate">Fecha de Nacimiento: </label><br>
+                    <select id="year">
+                        <option value="">año</option>
+                        <option value="99">1999</option>
+                        <option value="98">1998</option>
+                        <option value="97">1997</option>
+                        <option value="96">1996</option>
+                        <option value="95">1995</option>
+                        <option value="94">1994</option>
+                        <option value="93">1993</option>
+                        <option value="92">1992</option>
+                        <option value="91">1991</option>
+                        <option value="90">1990</option>
+                        <option value="89">1989</option>
+                        <option value="88">1988</option>
+                        <option value="87">1987</option>
+                        <option value="86">1986</option>
+                        <option value="85">1985</option>
+                        <option value="84">1984</option>
+                        <option value="83">1983</option>
+                        <option value="82">1982</option>
+                        <option value="81">1981</option>
+                        <option value="80">1980</option>
+                        <option value="79">1979</option>
+                        <option value="78">1978</option>
+                        <option value="77">1977</option>
+                        <option value="76">1976</option>
+                        <option value="75">1975</option>
+                        <option value="74">1974</option>
+                        <option value="73">1973</option>
+                        <option value="72">1972</option>
+                        <option value="71">1971</option>
+                        <option value="70">1970</option>
+                        <option value="69">1969</option>
+                        <option value="68">1968</option>
+                        <option value="67">1967</option>
+                        <option value="66">1966</option>
+                        <option value="65">1965</option>
+                        <option value="64">1964</option>
+                        <option value="63">1963</option>
+                        <option value="62">1962</option>
+                        <option value="61">1961</option>
+                        <option value="60">1960</option>
+                        <option value="59">1959</option>
+                        <option value="58">1958</option>
+                        <option value="57">1957</option>
+                        <option value="56">1956</option>
+                        <option value="55">1955</option>
+                        <option value="54">1954</option>
+                        <option value="53">1953</option>
+                        <option value="52">1952</option>
+                        <option value="51">1951</option>
+                        <option value="40">1950</option>
+                        <option value="49">1949</option>
+                        <option value="48">1948</option>
+                        <option value="47">1947</option>
+                        <option value="46">1946</option>
+                        <option value="45">1945</option>
+                        <option value="44">1944</option>
+                        <option value="43">1943</option>
+                        <option value="42">1942</option>
+                        <option value="41">1941</option>
+                        <option value="40">1940</option>
+                    </select>
+                    <select id="month">
+                        <option value="">mes</option>
+                        <option value="Ene">Enero</option>
+                        <option value="Feb">Febrero</option>
+                        <option value="Mar">Marzo</option>
+                        <option value="Abr">Abril</option>
+                        <option value="May">Mayo</option>
+                        <option value="Jun">Junio</option>
+                        <option value="Jul">Julio</option>
+                        <option value="Ago">Agosto</option>
+                        <option value="Sep">Septiembre</option>
+                        <option value="Oct">Octubre</option>
+                        <option value="Nov">Noviembre</option>
+                        <option value="Dic">Diciembre</option>
+                    </select>
+                    <select id="day">
+                        <option value="">día</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select> <!--hacer un condicional en javascript donde los días aparezcan segúnel mes seleccionado-->
+                    
+                </p>
+
+                <div id="registerButtons">
+                    <input type= "submit" id= "clearRegister"  class= "clearForm" value= "Reiniciar"/>
+                    <input type= "submit" id= "registerButton" value= "Crear cuenta"/>
+                </div>
+            </fieldset>
+
+        </div>
+
+
     </body>
 
 </html>

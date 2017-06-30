@@ -16,25 +16,20 @@
 	}
 
 	else{
-		$usr=$_POST['user'];
-		$pwd=$_POST['password'];
 
-		$sqlquery = "SELECT	*
-					 FROM Users 
-					 WHERE username='$usr' AND passwrd='$pwd' ";
+		$sqlquery = "SELECT	comment, U.username, email 
+					 FROM COMMENTS C 
+					 JOIN USERS U 
+					 ON (C.username=U.username)";
 	
 		$datos = $conn->query($sqlquery);
 
 		if ($datos->num_rows > 0){
-			
+			$i = 0;
 			while($row = $datos->fetch_assoc()){
-				$response= array('name' => $row['firstname'], 'lastname' => $row['lastname']);
+				$response[$i] = array('user' => $row['username'], 'comm' => $row['comment'], 'email' => $row['email'] );
+				$i++;
 			}
-
-			session_start();
-
-			$_SESSION["firstName"] = $row["firstname"];
-			$_SESSION["lastName"] = $row["lastname"];
 
 			echo json_encode($response);
 		}
@@ -43,6 +38,10 @@
 			$connection -> close();
 			return array("status" => "406");
 		}
+		
+		$result = $dato->fetch_assoc();
+
+		echo json_encode($result);
 
 	}
 ?>

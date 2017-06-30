@@ -36,6 +36,12 @@ div#encabezado{
 	overflow: hidden;
 }
 
+div#sesiones{
+	background-color: #303030;;
+	height: 30px;
+	overflow: hidden;
+}
+
 div#logo{
 	float: left;
 	height: 60px;
@@ -58,15 +64,37 @@ ul#menu{
 	color: white;
 }
 
+ul#menuSesiones{
+	list-style: none;
+	margin: 0px;
+	padding: 0;
+	height: 30px;
+	background-color: #303030;
+	float: right;
+	overflow: hidden;
+	color: white;
+}
+
 ul#menu li{
 	float: right;
 	padding: 20px;
 	height: 60px;
 }
+ul#menuSesiones li{
+	float: right;
+	padding: 10px 20px 0 0 ;
+	height: 30px;
+	font-size: .8em;
+}
 
 ul#menu li:hover, ul#menu li.selected{
 	background-color:  #303030;
 	color: white;
+	cursor: pointer;
+}
+
+ul#menuSesiones li:hover, ul#menuSesiones li.selected{
+	color:  #F26922;
 	cursor: pointer;
 }
 
@@ -154,7 +182,8 @@ input[type=submit]:hover{
 }
  
 .errores{
-	font-size: 1em;
+	font-weight: bold;
+	font-size: 1.3em;
 	border: 1px solid red;
 	color: black;
 	padding: 10px;
@@ -165,3 +194,41 @@ input[type=submit]:hover{
 	display: none;
 }
 
+.chefs{
+	margin: 20px 20px 0 20px;
+	padding: 10px 0 0 10px;
+	text-align: center;
+	display: block;
+	min-width: 200px;
+	max-width: 400px;
+	overflow: hidden;
+	float: left;
+	font-size: 1.3em;
+	
+}
+
+.chefs > h2 {
+	background-color: white;
+	color: #F26922;
+
+
+}
+
+.especialidades{
+	padding: 10px 0 0 10px;
+	background-color: #F26922;
+	color: white;
+	height:  150px
+}
+
+.especialidades >ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0;
+
+}
+
+#correoTexto{
+	min-width: 250px;
+	min-height: 100px; 
+}

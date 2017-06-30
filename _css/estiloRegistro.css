@@ -1,0 +1,72 @@
+/*
+Autor: Francisco Maass Villarreal
+Matricula: A01136728
+Clase: Desarrollo de Applicaciones web
+Periodo: Verano 2017
+Profesor: MSc Alfredo Salazar Vélez
+Escuela: Instituto tecnológico y de estudios superoipres de Monterrey
+Campus: Monterrey
+
+CSS: Cascade styling sheet
+*/
+
+body{
+	overflow: hidden;
+}
+
+div#formularios{
+	padding: 20px  0 0 0px;
+	overflow: hidden;
+}
+
+fieldset{
+	border: 0px groove #F26922;
+	margin: 20px;
+	padding: 20px 0 20px 20px;
+	width: 42%;
+	float: left;
+	background-color: #F0F0F0;
+}
+
+fieldset#login{
+	width: 30%;
+}
+
+input.clearForm {
+	background-color: #303030;
+}
+
+input#registerButton, input#loginButton{
+	background-color: #F26922;
+	margin-right: 50px;
+}
+
+input#loginButton{
+	margin-left: 50px;
+	width: 200px;
+}
+
+input#registrarLastname{
+	margin-right: 50px;
+	overflow: ; 
+}
+
+input[type=submit]{
+	min-width: 120px;
+}
+input[type=text], input[type=email], input[type=password], legend{
+	font-size: 1.1em;
+}
+
+input[type=submit]:hover{
+	background-color: ;
+	cursor: pointer;
+}
+
+select{
+	max-width: 80px;
+}
+
+.error{
+	color: red;
+}

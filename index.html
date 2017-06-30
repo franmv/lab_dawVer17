@@ -21,11 +21,23 @@
 		<link rel= "stylesheet" type= "text/css" href= "_css/estilo.css" />
 
 		<!-- Scripts -->
+		<script type="text/javascript" src="_scripts/jquery.js"></script>
 		<script type="text/javascript" src="_scripts/indexJS.js"></script>
+
 	</head>
 
 	<body>
-		<!-- Encabeado de la pagina -->
+		<!-- Barra de sesiones -->
+		<div id= "sesiones" >
+
+			<!-- Menú de sesiones -->
+			<ul id= "menuSesiones">
+				<li class= "showing" id="iniciarSesion">Iniciar sesión | Registro</li>
+				<li class= "hidden" >nombreDeUsuario</li>
+			</ul>
+		</div>
+
+		<!-- Menú de la pagina -->
 		<div id= "encabezado" >
 			<!-- Separar la barra Usuario de la de navegación-->
 
@@ -48,7 +60,7 @@
 			</ul>
 		</div>
 
-			<!-- Contenido de la pagina Home  -->
+		<!-- Contenido de la pagina Home  -->
 		<div id= "inicio" class= "showing">
 			
 			<h1>Inicio</h1>
@@ -69,52 +81,20 @@
 
 			<h1>El equipo de Mr. Burger</h1>
 
-			<p>Le base de datos</p>
-
-			<!-- Aquí va el contenido de los chefs
-
-			<div id= "chef[NOMBRE]" calss= "chefWrapper">
-				
-				<img src="[PATH A IMAGEN]" />
-				
-				nombre + apellidos
-
-				edad
-
-				tipo
-
-				variable = "";
-
-				variable = "<ul> especialidades: "
-					var i= spec.length
-
-					do{
-						variable += <li> specName </li>;
-						i- -;
-					}while(i!=0);
-				variable += "</ul>"
-					
-			</div>
-
-			-->
+			<!-- Aquí va info de los chefs: se carga desde archivo json -->	
 		</div>
 
 		<!-- Contenido de la pagina Pedidos  -->
 		<div id= "pedidos" class= "hidden">
+			
+			<div class = "tituloSeccion">
+					<h1>Pedidos</h1>
+			</div>
+
 			<!-- Formulario -->
 			<div id= "orden">
-
-				<h1>Pedidos</h1>
-
 				<fieldset>
 					<legend>Tu orden</legend>
-
-					<div class= "errores hidden">
-
-						<span id="errorTamaño" class="hidden"> ¿De que tamaño? </span><br>
-						<span id="errorSalsa" class="hidden"> ¡Hey, Se te olvido la salsa! </span><br>
-						<span id="errorCantidad" class="hidden"> ¿Cuantas quieres? </span>
-					</div>
 
 					<span> <!-- Instrucciones y slogan -->
 						<p>
@@ -130,13 +110,13 @@
 					<div class= "opcionesTamaño">
 						<span><h4>Tamaño</h4></span>
 
-						<input type = "radio" name = "tamaño" id= "tamañoSimple" value= "simple" class= "tamaño"/> 
+						<input type = "radio" name = "tamaño" id= "tamañoSimple" value= "original" class= "tamaño"/> 
 						<label for= "tamañoSimple" >La original</label><br>
 
-						<input type = "radio" name = "tamaño" id= "tamañoDoble" value= "doble" class= "tanaño" /> 
+						<input type = "radio" name = "tamaño" id= "tamañoDoble" value= "doble" class= "tamaño" /> 
 						<label for= "tamañoDoble">Doble (Para los hambrientos)</label><br>
 
-						<input type = "radio" name = "tamaño" id= "tamañoTriple" value= "triple" class= "tamaño" /> 
+						<input type = "radio" name = "tamaño" id= "tamañoTriple" value= "imposible" class= "tamaño" /> 
 						<label for= "tamañoTriple">La imposible (¡No te la vas a acabar!)</label><br>
 						<br>
 
@@ -144,19 +124,21 @@
 						<label>Con queso</label>
 					</div>
 
+					<!-- Selección de aderezos -->
 					<div class= "opcionesaderezos">
 						<h4>La quieres con: </h4>
 
-						<input  type= "checkbox" name= "aderezos" id= "mayonesa" vlaue= "mayonesa" class= "aderezos"/>
+						<input  type= "checkbox" name= "aderezos" id= "mayonesa" value= "mayonesa" class= "aderezos"/>
 						<label for= "mayonesa">Mayonesa</label>
 
-						<input  type= "checkbox" name= "aderezos" id= "mostaza" vlaue= "mostaza" class= "aderezos"/>
+						<input  type= "checkbox" name= "aderezos" id= "mostaza" value= "mostaza" class= "aderezos"/>
 						<label for= "mostaza">Mostaza</label>
 
-						<input  type= "checkbox" name= "aderezos" id= "cátsup" vlaue= "cátsup" class= "aderezos"/>
+						<input  type= "checkbox" name= "aderezos" id= "cátsup" value= "cátsup" class= "aderezos"/>
 						<label for= "cátsup">Cátsup</label>
 					</div>	
 
+					<!-- Selección de complementos -->
 					<div class= "opcionesComplementos">
 						<h4>¿Qué mas le ponemos?</h4>
 
@@ -195,6 +177,7 @@
 						</span>
 					</div>
 
+					<!-- Selección de salsa -->
 					<div class= "opcionesSalsa">
 						<h4>En que salsa la bañamos</h4>
 						<label for= "salsa">en: </label>
@@ -211,41 +194,49 @@
 						</select>
 					</div>
 
+					<!-- Selección de extras -->
 					<div class= "extra">
 						<h4>Y para acompañar</h4>
-						<input type= "checkbox" name= "extra" id= "ensalada" value= "ensalada" />
+						<input type= "checkbox" name= "extra" id= "ensalada" value= "una ensalada" />
 						<label for= "ensalada">Ensalada (estoy a dieta)</label><br>
 
-						<input type= "checkbox" name= "extra" id= "papas" value= "papas" />
+						<input type= "checkbox" name= "extra" id= "papas" value= "unas papas" />
 						<label for= "papas">Papas a la francesa</label><br>
 
-						<input type= "checkbox" name= "extra" id= "criscut" value= "criscut" />
+						<input type= "checkbox" name= "extra" id= "criscut" value= "unas criscut" />
 						<label for= "criscut">Papas Cris-cut</label><br>
 					</div>
 
+					<!-- Selección de cantidad -->
 					<div class= "opcionesCantidad">
 						
 						<label for= "cantidad">¿Entre cuantos dividimos la cuenta?</label>
 						<input type= "number" name= "cantidad" id= "cantidad"/>
-						
 					</div>
 
+					<!-- Cuadro de alerta para errores-->
+					<div class= "errores hidden">
+						<div id="errorTamaño" class="hidden"> ¿De que tamaño? </div>
+						<div id="errorSalsa" class="hidden"> ¡Hey, Se te olvido la salsa! </div>
+						<div id="errorCantidad" class="hidden"> ¿Cuantas quieres? </div>
+					</div>
+
+					<!-- Botones -->
 					<div class= "botones">
 						<input type= "submit" value= "De nuevo" id= "resetForm" />
 						<input type= "submit" value= "A la cocina!" id= "submitForm" />
 					</div>
-
 				</fieldset>
 			</div>
 
 			<!-- Resumen del pedido -->
-			<div id= "resumen" class= "hidden">	
-
+			<div id= "contenedorResumen" class= "hidden">	
+				
 				<fieldset>
 					<legend>Resumen</legend>
 
-					<p>
-						R evisa que to esté en orden.
+					<p id = "resumen">
+						
 					</p>
 
 					<!-- Se llena con el JS -->
@@ -258,49 +249,58 @@
 		<!-- Contenido de la pagina de Contacto  -->
 		<div id= "contacto" class= "hidden">
 
+			<!--Titulo de la pagina-->
 			<h1>Dejanos un comentario</h1>
 
-			<p>
-				Input en donde el usuario escribe su correo y un text area donde el ususario deja su comentarios. 
-			</p>
+			<!--ver la posibilidad de agregar un dropDown con opciones, si selecciona la opcion Comentario, el comentario se agrega a la lista 
 
-			<p>
-				Un boton con la leyenda COMENTA: agregar el comentario a la lista de comentarios esplegada al inferior de dichos inputs (Como htmls no modificar ningunarchivo JSON o XML
-			</p>
+					<select id= "selectContacto">
+						<option value= "1"> Sugerencia </option>
+						<option value= "2"> Queja </option>
+						<option value= "3"> Comentario </option>
+					</select>
 
-						<!--Titulo de la pagina-->
-				<h1>Contacto</h1>
+					<span id= "warningComentarios" class= "warning">
+						NOTA: todos los comentarios son publicos y se despliegan despues de esta seccion
+					</span>
 
-				<!--ver la posibilidad de agregar un dropDown con opciones, si selecciona la opcion Comentario, el comentario se agrega a la lista 
+					Tambien se pueden habilitar los campos segun ls opcion seleccionada por el ussuario
+			-->
 
-				<select id= "selectContacto">
-					<option value= "1"> Sugerencia </option>
-					<option value= "2"> Queja </option>
-					<option value= "3"> Comentario </option>
-				</select>
-
-				<span id= "warningComentarios" class= "warning">
-					NOTA: todos los comentarios son publicos y se despliegan despues de esta seccion
-				</span>
-
-				Tambien se pueden habilitar los campos segun ls opcion seleccionada por el ussuario
-				-->
-
-				<!-- Captura infromación del ususairo-->
-				<fieldset id= "correo">
-					<legend>Envianos un correo</legend>
-					
+			<!-- Captura infromación del ususairo-->
+			<fieldset id= "correo">
+				<legend>Envianos un correo</legend>
+				
+				<p>
 					<label for= "correoNombre">Nombre</label><br>
 					<input type= "text" name= "correoNombre" id= "correoNombre" />
+				</p>
 
+				<p>
 					<label for= "correoCorreo">Correo Elctrónico</label><br>
 					<input type= "email" name= "correoCorreo" id= "correoCorreo" />
+				</p>
 
-					<label for= "correoTexto">Correo Elctrónico</label><br>
-					<textarea name= "correoTexto">Deja tu comentario aquí...</textarea> 
+				<p>
+					<label for= "selectContacto">Motivo</label><br>
+					<select id= "selectContacto">
+						<option value= "0">  </option>
+						<option value= "1"> Sugerencia </option>
+						<option value= "2"> Queja </option>
+						<option value= "3"> Comentario </option>
+					</select>
+				</p>
 
-					<input type="submit" id= "bottonEnviar" value="Enviar">
-				</fieldset>
+				<p>
+					<label for= "correoTexto">Comentarios</label><br>
+					<textarea name= "correoTexto" id= "correoTexto">Deja tu comentario aquí...</textarea> 
+				</p>
+
+				<div id="contenedorBotones">
+					<input type= "submit" id= "publishComm" value= "Comentar"/>
+				</div>
+				<!-- <input type="submit" id="publishComm" value="Comentar"/> -->
+			</fieldset>
 
 				<!--Despliega comentarios de los usuarios-->
 				<fieldset id= "comentarios">

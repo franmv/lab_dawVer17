@@ -16,26 +16,21 @@
 	}
 
 	else{
-		$usr=$_POST['user'];
-		$pwd=$_POST['password'];
 
-		$sqlquery = "SELECT	*
-					 FROM Users 
-					 WHERE username='$usr' AND passwrd='$pwd' ";
+		$sqlquery = "SELECT	name, type, U.username, firstname, lastname 
+					 FROM SPECIALTIES S, CONTACTS C 
+					 JOIN USERS U 
+					 ON (C.username=U.username=S.username)";
 	
 		$datos = $conn->query($sqlquery);
 
 		if ($datos->num_rows > 0){
-			
+			$i = 0;
 			while($row = $datos->fetch_assoc()){
-				$response= array('name' => $row['firstname'], 'lastname' => $row['lastname']);
+				$response[$i] = array('type' => $row['type'], 'firstname' => $row['firstname'], 'lastname' => $row['lastname'] );
+				$i++;
 			}
-
-			session_start();
-
-			$_SESSION["firstName"] = $row["firstname"];
-			$_SESSION["lastName"] = $row["lastname"];
-
+			$connection -> close();
 			echo json_encode($response);
 		}
 		
@@ -43,6 +38,5 @@
 			$connection -> close();
 			return array("status" => "406");
 		}
-
 	}
 ?>
